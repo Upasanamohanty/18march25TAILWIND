@@ -1,0 +1,53 @@
+import React from 'react';
+import { CheckCircle } from 'lucide-react';
+
+const FloorCareServices: React.FC = () => (
+  <div className="w-[833px] h-[762px] absolute top-[214px] left-[304px] bg-[#FFFFFF] p-6 rounded-[10px] shadow-lg">
+    <div className="flex gap-4 mb-4">
+      <div className="w-[332px] h-[228px] rounded-[10px] overflow-hidden">
+        <img 
+          src="https://cleankom.com/wp-content/uploads/2023/12/Mask-Group-27.png" 
+          alt="Cleaning Service" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div>
+        <h3 className="text-black font-bold text-lg">Floor Care Services</h3>
+        <p className="text-gray-600 text-sm">Stripping, waxing, buffing, and polishing various types of flooring to maintain appearance and longevity.</p>
+        <div className="flex items-center gap-2 mt-2">
+          <div className="flex text-yellow-400 text-xl">{Array(5).fill('⭐')}</div>
+          <span className="text-purple-400 font-bold">$3.00 per square foot</span>
+          <button className="bg-teal-500 text-white px-4 py-1 flex items-center rounded-full">
+            <CheckCircle size={16} className="mr-1" /> Added
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <h2 className="font-bold text-lg">Packages</h2>
+
+    <div className="w-full bg-[#F9F9FC] p-4 rounded-lg shadow-md mb-2">
+      <h3 className="text-black font-bold">Deep Cleaning</h3>
+      <p className="text-gray-600 text-sm">Are you looking for basic details about starting a cleaning service, or do you need a description for an existing cleaning service?</p>
+      <div className="flex justify-between items-center">
+        <span className="font-bold">2 Hrs</span>
+        <span className="text-purple-400 font-bold">$10</span>
+      </div>
+    </div>
+
+    <div className="w-full bg-[#F9F9FC] p-4 rounded-lg shadow-md mb-2">
+      <h3 className="text-black font-bold">Sofa Cleaning</h3>
+      <p className="text-gray-600 text-sm">Are you looking for basic details about starting a cleaning service, or do you need a description for an existing cleaning service?</p>
+      <div className="flex justify-between items-center">
+        <span className="font-bold">2 Hrs</span>
+        <span className="text-purple-400 font-bold">$5</span>
+      </div>
+    </div>
+
+    <button className="w-[211px] h-[46px] bg-teal-500 text-white rounded-[8px] p-[8px_24px] gap-[7px] shadow-md mt-4">
+      Go With Packages <span className="font-bold">$18</span>
+    </button>
+  </div>
+);
+
+export default FloorCareServices;
