@@ -1,0 +1,68 @@
+import React, { useState } from 'react';
+
+const BedroomBathroomSelector: React.FC = () => {
+  const [selectedBedroom, setSelectedBedroom] = useState<string | number>('Studio');
+  const [selectedBathroom, setSelectedBathroom] = useState<number>(1);
+  const [serviceCount, setServiceCount] = useState<number>(0);
+  const [serviceText, setServiceText] = useState<string>('');
+
+  const handlePlus = () => setServiceCount(serviceCount + 1);
+  const handleMinus = () => setServiceCount(serviceCount > 0 ? serviceCount - 1 : 0);
+
+  return (
+    <div className="flex flex-col items-center gap-5">
+      <h1 className="text-center text-[#0B0C36] text-2xl font-bold">Customize Your Requirements</h1>
+      <div className="w-[601px] h-[344px] rounded-xl bg-white p-5 shadow-md">
+        <div>
+          <p>Number Of Bedrooms</p>
+          <div className="flex gap-2 mb-5">
+            {['Studio', 1, 2, 3, 4, 5].map((room) => (
+              <div 
+                key={room.toString()} 
+                className={`p-2 border rounded-md cursor-pointer ${selectedBedroom === room ? 'bg-[#1DC5C4] text-white' : 'border-gray-300'}`}
+                onClick={() => setSelectedBedroom(room)}
+              >
+                {room}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p>Number Of Bathrooms</p>
+          <div className="flex gap-2 mb-5">
+            {[1, 2, 3, 4, 5].map((bath) => (
+              <div 
+                key={bath.toString()} 
+                className={`p-2 border rounded-md cursor-pointer ${selectedBathroom === bath ? 'bg-[#1DC5C4] text-white' : 'border-gray-300'}`}
+                onClick={() => setSelectedBathroom(bath)}
+              >
+                {bath}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <div className="flex-1">
+            <p>Service</p>
+            <input 
+              type="text" 
+              placeholder="Add Service" 
+              value={serviceText}
+              onChange={(e) => setServiceText(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded-md"
+            />
+          </div>
+          <div className="flex gap-2">
+            <button className="w-10 h-10 rounded-md bg-[#1DC5C4] text-white font-bold" onClick={handlePlus}>+</button>
+            <button className="w-10 h-10 rounded-md bg-[#1DC5C4] text-white font-bold" onClick={handleMinus}>-</button>
+          </div>
+        </div>
+      </div>
+      <button className="w-[266px] h-[50px] rounded-xl bg-[#1DC5C4] text-white text-lg font-bold">Next</button>
+    </div>
+  );
+};
+
+export default BedroomBathroomSelector;
