@@ -1,0 +1,48 @@
+import React from 'react';
+import { 
+  FaHome, FaBroom, FaBug, FaTshirt, FaTruckMoving, 
+  FaHeartbeat, FaFemale, FaCarSide, FaPaw, FaTools 
+} from 'react-icons/fa';
+
+// Define a type for icons array
+interface ServiceIcon {
+  icon: JSX.Element;
+  label: string;
+}
+
+const icons: ServiceIcon[] = [
+  { icon: <FaHome />, label: "Property Maintenance" },
+  { icon: <FaBroom />, label: "Cleaning Services" },
+  { icon: <FaBug />, label: "Pest Control & Disinfection Services" },
+  { icon: <FaTshirt />, label: "Home Laundry Service" },
+  { icon: <FaTruckMoving />, label: "Movers" },
+  { icon: <FaHeartbeat />, label: "Home Health Care Services" },
+  { icon: <FaFemale />, label: "Home Beauty Service" },
+  { icon: <FaCarSide />, label: "Car Rental" },
+  { icon: <FaPaw />, label: "Home Pets Grooming Services" },
+  { icon: <FaTools />, label: "Automotive Service" },
+];
+
+const Footer: React.FC = () => {
+  return (
+    <div className="bg-white w-[1440px] h-[730px] text-black relative top-[1435px]">
+      <div className="grid grid-cols-4 gap-8 py-8">
+        {icons.map((service, index) => (
+          <div key={index} className="flex flex-col items-center w-[310px] h-[286px] top-[390px] left-[61px] bg-white text-black p-4 rounded-[10px] border border-[#E2E2E2] shadow-md">
+            <div className="w-24 h-24 bg-[#FAF5FC] rounded-lg flex items-center justify-center mb-4">
+              {React.cloneElement(service.icon as React.ReactElement, { className: 'text-black text-5xl' })}
+            </div>
+            <h3 className="text-lg font-semibold text-center">{service.label}</h3>
+          </div>
+        ))}
+      </div>
+
+      <div className="text-center py-4 border-t border-gray-400">
+        <p>Copyright © 2024 Asrae. All rights reserved</p>
+        <p>Privacy Policy | Terms & Conditions</p>
+      </div>
+    </div>
+  );
+};
+
+export default Footer;
