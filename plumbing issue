@@ -1,0 +1,101 @@
+import React from 'react';
+
+type Service = {
+  title: string;
+  image: string;
+  description: string[];
+};
+
+const ServicePage: React.FC = () => {
+  const services: Service[] = [
+    {
+      title: 'Plumbing Issues',
+      image: 'https://images.app.goo.gl/7ANnqdQxoKJdmagy5',
+      description: [
+        'Fixing leaky faucets and pipes',
+        'Unclogging drains and toilets',
+        'Installing or replacing sinks, faucets, and showerheads',
+        'Repairing or replacing toilets',
+        'Installing or repairing water heaters'
+      ]
+    },
+    {
+      title: 'Electrical Repairs',
+      image: 'https://images.app.goo.gl/7ANnqdQxoKJdmagy5',
+      description: [
+        'Fixing faulty switches and outlets',
+        'Replacing light fixtures and ceiling fans',
+        'Installing new electrical outlets and dimmers',
+        'Troubleshooting and repairing wiring issues',
+        'Mounting TVs and managing cables'
+      ]
+    },
+    {
+      title: 'Carpentry & Woodwork',
+      image: 'https://images.app.goo.gl/7ANnqdQxoKJdmagy5',
+      description: [
+        'Repairing or installing doors and locks',
+        'Fixing or assembling furniture',
+        'Building or repairing cabinets and shelves',
+        'Installing curtain rods and blinds',
+        'Repairing wooden floors'
+      ]
+    },
+    {
+      title: 'Painting & Wall Repairs',
+      image: 'https://images.app.goo.gl/7ANnqdQxoKJdmagy5',
+      description: [
+        'Touch-up painting and full room painting',
+        'Patching holes and cracks in walls',
+        'Wallpaper installation or removal',
+        'Installing decorative wall panels'
+      ]
+    },
+    {
+      title: 'General Repairs & Maintenance',
+      image: 'https://images.app.goo.gl/7ANnqdQxoKJdmagy5',
+      description: [
+        'Fixing loose or broken tiles',
+        'Repairing drywall damage',
+        'Replacing or repairing window screens',
+        'Lubricating and fixing squeaky doors',
+        'Weatherproofing windows and doors'
+      ]
+    },
+    {
+      title: 'Outdoor & Miscellaneous Repairs',
+      image: 'https://images.app.goo.gl/7ANnqdQxoKJdmagy5',
+      description: [
+        'Installing or repairing gates and fences',
+        'Assembling outdoor furniture',
+        'Fixing or replacing outdoor lighting',
+        'Minor landscaping and garden maintenance',
+        'Cleaning and repairing gutters'
+      ]
+    }
+  ];
+
+  return (
+    <div className="grid grid-cols-2 gap-4 p-4 bg-[#FAF5FC]">
+      {services.map((service, index) => (
+        <div key={index} className="w-[646px] h-[286px] bg-[#FAF5FC] border border-[#AF5AD0] rounded-[10px] p-4 flex items-center gap-[20px]">
+          <img 
+            src={service.image} 
+            alt={service.title} 
+            className="w-[200px] h-[200px] rounded-[10px]"
+          />
+          <div>
+            <h2 className="text-lg font-bold">{service.title}</h2>
+            <ul className="list-disc pl-4">
+              {service.description.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ServicePage;
